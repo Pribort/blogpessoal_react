@@ -18,7 +18,7 @@ function Home() {
             }}
           >
             <h2>Seja Bem Vinde!</h2>
-            <p>Expresse aqui seus pensamentos e opniões</p>
+            <p>Expresse aqui seus pensamentos e opniões!</p>
           </div>
 
           <div
