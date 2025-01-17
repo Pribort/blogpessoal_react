@@ -1,7 +1,19 @@
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 import { BookOpen } from "lucide-react";
-import { Link } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
+
+  const { handleLogout } = useContext(AuthContext);
+
+  function logout() {
+    handleLogout();
+    alert("O Usuário foi desconectado com sucesso!");
+    navigate("/");
+  }
+
   return (
     <>
       <div
@@ -16,8 +28,12 @@ function Navbar() {
                 Blog Pessoal
               </Link>
             </div>
-            <div className="flex gap-4 font-bold text-olive-200">
-              Postagens Temas Cadastrar Tema Perfil Sair
+
+            <div className="flex gap-4">
+              Postagens Temas Cadastrar tema Perfil
+              <Link to="" onClick={logout} className="hover:underline">
+                Sair
+              </Link>
             </div>
           </div>
         </div>
