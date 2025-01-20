@@ -4,7 +4,7 @@ function Home() {
       <div className="bg-olive-50 flex justify-center h-px">
         <div className="container grid grid-cols-2 text-olive-800">
           <div className="flex flex-col gap-4 items-center justify-center py-4">
-            <h2 className="text-5xl font-sans font-bold">Seja Bem Vinde!</h2>
+            <h2 className="text-5xl font-sans font-bold">Seja Bem-vindo!</h2>
             <p className="text-xl font-sans">
               Expresse aqui seus pensamentos e opniões
             </p>

@@ -1,4 +1,4 @@
-import { Facebook, FacebookIcon, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 function Footer() {
   let data = new Date().getFullYear();
@@ -14,17 +14,14 @@ function Footer() {
           <div className="flex gap-2">
             <Linkedin
               size={28}
-              height="bold"
               className="hover:text-olive-200 transition-colors"
             />
             <Instagram
               size={28}
-              height="bold"
               className="hover:text-olive-200 transition-colors"
             />
             <Facebook
               size={28}
-              height="bold"
               className="hover:text-olive-200 transition-colors"
             />
           </div>
