@@ -52,31 +52,10 @@ export default {
           800: "#49433E",
           900: "#26221F",
         },
-        feminine: {
-          50: "#F9F7F6", // Tom mais claro
-          100: "#F4EEED", // Cor principal (rosa claro)
-          200: "#EFC9D1", // Rosa suave
-          300: "#DDB8AB", // Tom pêssego rosado
-          400: "#B3A48D", // Bege amarronzado
-          500: "#999B84", // Verde oliva acinzentado
-          600: "#7E806A",
-          700: "#636550",
-          800: "#484A36",
-          900: "#2E2F1C", // Tom mais escuro
-        },
-        feminineDark: {
-          50: "#FCEBE9", // Tom mais claro (variação de #F9C8C2)
-          100: "#F9C8C2", // Rosa claro
-          200: "#E3A39E",
-          300: "#C69491", // Tom intermediário rosado
-          400: "#A87C7B",
-          500: "#96ACA0", // Verde acinzentado suave
-          600: "#7D9094", // Azul acinzentado médio
-          700: "#60665A", // Verde escuro acinzentado
-          800: "#494E45",
-          900: "#31342D", // Tom mais escuro
-        },
       },
+    },
+    fontFamily: {
+      cute: ["Quicksand", "sans-serif"],
     },
   },
   plugins: [],

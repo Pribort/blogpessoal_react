@@ -4,14 +4,13 @@ import "./Cadastro.css";
 import { useNavigate } from "react-router-dom";
 import Usuario from "../../models/Usuario";
 import { Oval } from "react-loader-spinner";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Cadastro() {
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
   const [confirmaSenha, setConfirmaSenha] = useState<string>("");
-
   const [usuario, setUsuario] = useState<Usuario>({
     id: 0,
     nome: "",
@@ -49,13 +48,14 @@ function Cadastro() {
 
       try {
         await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario);
-        alert("Usuário cadastrado com sucesso!");
+        ToastAlerta("Usuário foi cadastrado com sucesso!", "sucesso");
       } catch (error) {
-        alert("Erro ao cadastrar o usuário!");
+        ToastAlerta("Erro ao cadastrar usuário!", "error");
       }
     } else {
-      alert(
-        "Dados do usuário inconsistentes! Verifique as informações do cadastro."
+      ToastAlerta(
+        "Dados do usuário inconsistentes! Verifique as informações do cadastro.",
+        "info"
       );
       setUsuario({ ...usuario, senha: "" });
       setConfirmaSenha("");
@@ -66,99 +66,104 @@ function Cadastro() {
 
   return (
     <>
-      <div
-        className="grid grid-cols-1 lg:grid-cols-2 h-screen 
-            place-items-center font-bold"
-      >
-        <div className="fundoCadastro hidden lg:block"></div>
+      <div className="flex items-center justify-center min-h-screen bg-feminine-100">
         <form
-          className="flex justify-center items-center flex-col w-2/3 gap-3"
+          className="bg-white p-8 rounded-xl shadow-lg w-full max-w-lg"
           onSubmit={cadastrarNovoUsuario}
         >
-          <h2 className="text-slate-900 text-5xl">Cadastrar</h2>
-          <div className="flex flex-col w-full">
-            <label htmlFor="nome">Nome</label>
+          <h2 className="text-4xl text-center text-slate-900 mb-6">
+            Cadastrar
+          </h2>
+          <div className="flex flex-col w-full mb-4">
+            <label htmlFor="nome" className="mb-2">
+              Nome
+            </label>
             <input
               type="text"
               id="nome"
               name="nome"
               placeholder="Nome"
-              className="border-2 border-slate-700 rounded p-2"
+              className="border-2 border-slate-700 rounded p-2 bg-feminineDark-50"
               value={usuario.nome}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)
               }
             />
           </div>
-          <div className="flex flex-col w-full">
-            <label htmlFor="usuario">Usuario</label>
+          <div className="flex flex-col w-full mb-4">
+            <label htmlFor="usuario" className="mb-2">
+              Usuário
+            </label>
             <input
               type="text"
               id="usuario"
               name="usuario"
-              placeholder="Usuario"
-              className="border-2 border-slate-700 rounded p-2"
+              placeholder="Usuário"
+              className="border-2 border-slate-700 rounded p-2  bg-feminineDark-50"
               value={usuario.usuario}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)
               }
             />
           </div>
-          <div className="flex flex-col w-full">
-            <label htmlFor="foto">Foto</label>
+          <div className="flex flex-col w-full mb-4">
+            <label htmlFor="foto" className="mb-2">
+              Foto
+            </label>
             <input
               type="text"
               id="foto"
               name="foto"
               placeholder="Foto"
-              className="border-2 border-slate-700 rounded p-2"
+              className="border-2 border-slate-700 rounded p-2  bg-feminineDark-50"
               value={usuario.foto}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)
               }
             />
           </div>
-          <div className="flex flex-col w-full">
-            <label htmlFor="senha">Senha</label>
+          <div className="flex flex-col w-full mb-4">
+            <label htmlFor="senha" className="mb-2">
+              Senha
+            </label>
             <input
               type="password"
               id="senha"
               name="senha"
               placeholder="Senha"
-              className="border-2 border-slate-700 rounded p-2"
+              className="border-2 border-slate-700 rounded p-2  bg-feminineDark-50"
               value={usuario.senha}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)
               }
             />
           </div>
-          <div className="flex flex-col w-full">
-            <label htmlFor="confirmarSenha">Confirmar Senha</label>
+          <div className="flex flex-col w-full mb-6">
+            <label htmlFor="confirmarSenha" className="mb-2">
+              Confirmar Senha
+            </label>
             <input
               type="password"
               id="confirmarSenha"
               name="confirmarSenha"
               placeholder="Confirmar Senha"
-              className="border-2 border-slate-700 rounded p-2"
+              className="border-2 border-slate-700 rounded p-2  bg-feminineDark-50"
               value={confirmaSenha}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 handleConfirmarSenha(e)
               }
             />
           </div>
-          <div className="flex justify-around w-full gap-8">
+          <div className="flex justify-around w-full gap-8 mb-4">
             <button
-              className="rounded text-olive-50 bg-olive-500 
-                  hover:bg-olive-700 w-1/2 py-2"
+              className="rounded text-white bg-gray-500 hover:bg-gray-700 w-1/2 py-2"
               onClick={retornar}
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="rounded text-olive-50 bg-olive-700
-                           hover:bg-olive-900 w-1/2 py-2
-                           flex justify-center"
+              className="rounded text-white bg-feminineDark-400 hover:bg-feminineDark-500 w-1/2 py-2 flex justify-center"
             >
               {isLoading ? (
                 <Oval

@@ -1,24 +1,26 @@
-import { useContext, useEffect, useState } from "react";
-import { DNA, Oval } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
+import CardPostagens from "../cardpostagens/CardPostagens";
+import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
-import Tema from "../../../models/Tema";
-import CardTemas from "../cardtemas/CardTemas";
+import Postagem from "../../../models/Postagem";
 import { buscar } from "../../../services/Service";
+import { Oval } from "react-loader-spinner";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 
-function ListaTemas() {
+function ListaPostagens() {
   const navigate = useNavigate();
 
-  const [temas, setTemas] = useState<Tema[]>([]);
+  const [postagens, setPostagens] = useState<Postagem[]>([]);
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
-  async function buscarTemas() {
+  async function buscarPostagens() {
     try {
-      await buscar("/temas", setTemas, {
-        headers: { Authorization: token },
+      await buscar("/postagens", setPostagens, {
+        headers: {
+          Authorization: token,
+        },
       });
     } catch (error: any) {
       if (error.toString().includes("403")) {
@@ -35,12 +37,12 @@ function ListaTemas() {
   }, [token]);
 
   useEffect(() => {
-    buscarTemas();
-  }, [temas.length]);
+    buscarPostagens();
+  }, [postagens.length]);
 
   return (
     <>
-      {temas.length === 0 && (
+      {postagens.length === 0 && (
         <div className="flex justify-center items-center h-screen">
           <Oval
             visible={true}
@@ -52,17 +54,16 @@ function ListaTemas() {
           />
         </div>
       )}
-      <div className="flex justify-center w-full my-4">
-        <div className="container flex flex-col">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {temas.map((tema) => (
-              <CardTemas key={tema.id} tema={tema} />
-            ))}
-          </div>
-        </div>
+      <div
+        className="container mx-auto my-4 
+                grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+      >
+        {postagens.map((postagem) => (
+          <CardPostagens key={postagem.id} postagem={postagem} />
+        ))}
       </div>
     </>
   );
 }
 
-export default ListaTemas;
+export default ListaPostagens;

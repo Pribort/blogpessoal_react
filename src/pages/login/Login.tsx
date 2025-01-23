@@ -39,9 +39,9 @@ function Login() {
           className="flex justify-center items-center flex-col w-1/2 gap-4"
           onSubmit={login}
         >
-          <h2 className="text-olive-900 text-5xl ">Entrar</h2>
+          <h2 className="text-feminineDark-800 text-5xl ">Entrar</h2>
           <div className="flex flex-col w-full">
-            <label htmlFor="usuario" className="text-olive-900">
+            <label htmlFor="usuario" className="text-feminineDark-800">
               Usuário
             </label>
             <input
@@ -57,7 +57,7 @@ function Login() {
             />
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="senha" className="text-olive-900">
+            <label htmlFor="senha" className="text-feminineDark-800">
               Senha
             </label>
             <input
@@ -74,8 +74,7 @@ function Login() {
           </div>
           <button
             type="submit"
-            className="rounded text-olive-50 bg-olive-700
-                                     hover:bg-olive-900 w-1/2 py-2
+            className="rounded font-cute text-white bg-feminineDark-400 hover:bg-feminineDark-500 w-1/2 py-2
                                      flex justify-center"
           >
             {isLoading ? (
@@ -94,9 +93,12 @@ function Login() {
 
           <hr className="border-slate-800 w-full " />
 
-          <p>
+          <p className=" font-cute text-feminineDark-700">
             Ainda não tem uma conta?{" "}
-            <Link to="/cadastro" className="text-olive-800 hover:underline">
+            <Link
+              to="/cadastro"
+              className="text-feminineDark-600 hover:underline"
+            >
               Cadastre-se
             </Link>
           </p>
