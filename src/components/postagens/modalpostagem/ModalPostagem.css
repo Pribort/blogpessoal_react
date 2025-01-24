@@ -1,0 +1,36 @@
+/* Estilizando a caixa do modal */
+.popup-content {
+  border-radius: 1rem;
+  padding: 2rem;
+  background-color: #f9f7f6; /* Cor de fundo do conteúdo do modal (quase branco) */
+  border: 2px solid #a87c7b; /* Cor de borda (marrom suave) */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+  max-width: 500px; /* Tamanho máximo do modal */
+  width: 100%;
+}
+
+/* Estilizando a área de sobreposição (overlay) */
+.popup-overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Cor escurecida da área de fundo */
+}
+
+/* Estilizando o botão de trigger */
+.popup-button {
+  background-color: #a87c7b; /* Cor de fundo (marrom suave) */
+  color: white; /* Cor do texto do botão */
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilizando o botão ao passar o mouse (hover) */
+.popup-button:hover {
+  background-color: #60665a; /* Cor de fundo do botão no hover (verde oliva escuro) */
+}
+
+/* Adicionando um pouco de espaço ao redor do conteúdo do FormPostagem */
+.popup-content .form-postagem {
+  margin-top: 1rem;
+}
