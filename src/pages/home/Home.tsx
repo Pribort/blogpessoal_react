@@ -6,7 +6,7 @@ function Home() {
     <>
       <div className="relative w-full">
         <img
-          src="https://i.imgur.com/73kfR9t.jpg"
+          src="https://i.imgur.com/diDuqqt.jpg"
           alt="Imagem Página Home"
           className="w-full h-[500px] object-cover brightness-90"
         />
@@ -23,7 +23,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="container mx-auto py-12">
+      <div className="container mx-auto py-12 flex items-center justify-center ">
         <ListaPostagens />
       </div>
     </>

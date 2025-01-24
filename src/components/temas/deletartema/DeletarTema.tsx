@@ -72,41 +72,45 @@ function DeletarTema() {
   }
 
   return (
-    <div className="container w-1/3 mx-auto">
-      <h1 className="text-4xl text-center my-4">Deletar tema</h1>
-      <p className="text-center font-semibold mb-4">
-        Você tem certeza de que deseja apagar o tema a seguir?
-      </p>
-      <div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
-        <header className="py-2 px-6 bg-feminineDark-800 text-white font-bold text-2xl">
-          Tema
-        </header>
-        <p className="p-8 text-3xl bg-feminine-100 h-full">{tema.descricao}</p>
-        <div className="flex">
-          <button
-            className="text-slate-100 bg-feminine-500 hover:bg-olive-800 w-full py-2"
-            onClick={retornar}
-          >
-            Não
-          </button>
-          <button
-            className="w-full text-slate-100 bg-feminine-400 
-                                   hover:bg-feminine-600 flex items-center justify-center"
-            onClick={deletarTema}
-          >
-            {isLoading ? (
-              <Oval
-                visible={true}
-                height="24"
-                color="white"
-                ariaLabel="oval-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
-              />
-            ) : (
-              <span>Sim</span>
-            )}
-          </button>
+    <div className="relative h-screen flex items-center justify-center">
+      <div className="absolute inset-0 bg-[url(https://i.imgur.com/qIdi2c3.jpg)] bg-cover bg-center bg-no-repeat opacity-50"></div>
+      <div className="relative z-10 container w-1/3 mx-auto text-center bg-white/80 p-8 rounded-lg shadow-lg">
+        <h1 className="text-4xl font-cute text-feminineDark-300 my-4">
+          Deletar Tema
+        </h1>
+        <p className="font-semibold text-feminineDark-400 mb-4">
+          Você tem certeza de que deseja apagar o tema a seguir?
+        </p>
+        <div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
+          <header className="py-2 px-6 bg-feminineDark-700 text-feminineDark-50 font-bold text-2xl">
+            Tema
+          </header>
+          <p className="p-8 text-3xl text-feminineDark-300 font-cute bg-feminine-100 h-full">
+            {tema.descricao}
+          </p>
+          <div className="flex">
+            <button
+              className="text-feminineDark-50 bg-feminineDark-400 hover:bg-feminineDark-700 w-full py-2"
+              onClick={retornar}
+            >
+              Não
+            </button>
+            <button
+              className="w-full text-feminineDark-50 bg-red-500 hover:bg-red-700 flex items-center justify-center"
+              onClick={deletarTema}
+            >
+              {isLoading ? (
+                <Oval
+                  visible={true}
+                  height="24"
+                  color="white"
+                  ariaLabel="oval-loading"
+                />
+              ) : (
+                <span>Sim</span>
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </div>

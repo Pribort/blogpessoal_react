@@ -1,5 +1,5 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
-import { Oval, RotatingLines } from "react-loader-spinner";
+import { Oval } from "react-loader-spinner";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import Tema from "../../../models/Tema";
@@ -90,12 +90,20 @@ function FormTema() {
   }
 
   return (
-    <div className="container flex flex-col items-center justify-center mx-auto">
-      <h1 className="text-4xl text-center my-8 text-feminine-700">
+    <div
+      className="container flex flex-col items-center justify-center mx-auto bg-cover bg-center min-h-screen"
+      style={{
+        backgroundImage: "url(https://i.imgur.com/CkTRQvn.jpg)",
+      }}
+    >
+      <h1 className="text-4xl text-center my-8 text-feminine-50 z-10">
         {id === undefined ? "Cadastrar Tema" : "Editar Tema"}
       </h1>
 
-      <form className="w-1/2 flex flex-col gap-6" onSubmit={gerarNovoTema}>
+      <form
+        className="w-1/2 flex flex-col gap-6 bg-white bg-opacity-80 p-6 rounded-lg z-10"
+        onSubmit={gerarNovoTema}
+      >
         <div className="flex flex-col gap-2">
           <label htmlFor="descricao" className="text-feminine-700">
             Descrição do Tema
@@ -112,8 +120,8 @@ function FormTema() {
 
         <button
           className="rounded text-slate-100 bg-feminineDark-400 
-                 hover:bg-feminine-700 focus:ring-2 focus:ring-feminine-700 
-                 w-1/2 py-2 mx-auto flex justify-center transition duration-300"
+             hover:bg-feminine-700 focus:ring-2 focus:ring-feminine-700 
+             mx-auto  transition duration-300 w-1/2 py-2 flex justify-center"
           type="submit"
         >
           {isLoading ? (

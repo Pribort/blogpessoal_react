@@ -1,6 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { cadastrarUsuario } from "../../services/Service";
-import "./Cadastro.css";
 import { useNavigate } from "react-router-dom";
 import Usuario from "../../models/Usuario";
 import { Oval } from "react-loader-spinner";

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { DNA, Oval } from "react-loader-spinner";
+import { Oval } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import Tema from "../../../models/Tema";
@@ -46,13 +46,14 @@ function ListaTemas() {
             visible={true}
             height={100}
             width={100}
+            color="feminineDark-400"
             ariaLabel="oval-loading"
             wrapperStyle={{}}
             wrapperClass=""
           />
         </div>
       )}
-      <div className="flex justify-center w-full my-4">
+      <div className="flex justify-center  text-feminineDark-300 font-cute w-full my-4">
         <div className="container flex flex-col">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {temas.map((tema) => (
